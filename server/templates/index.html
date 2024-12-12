@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Information - Sarthi Web App</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;  /* Dark gray background for the entire page */
+    color: #fff;
+    padding: 20px;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.image-container {
+    flex: 1;
+    max-width: 40%;  /* Image takes 40% of the width */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container {
+    flex: 2;
+    max-width: 60%;  /* Text takes the remaining 60% of the width */
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+section p, section ul {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;  /* Slightly lighter color for text */
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+code {
+    background-color: #444;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sarthi Web App - Backend Information</h1>
+    </header>
+
+    <main>
+        <section class="content-container">
+            <div class="image-container">
+                <img src="/static/images/server.jpg" alt="Sarthi Web App Image">
+            </div>
+
+            <div class="text-container">
+                <h2>Overview</h2>
+                <p>The Sarthi Web App is designed to simulate autonomous vehicle functionalities, specifically lane detection and pothole detection. The backend is built using Flask and handles various routes for uploading videos, processing them, and providing damage reports.</p>
+
+                <h2>Backend Routes</h2>
+                <ul>
+                    <li><strong>/upload/lane</strong> (POST) - Upload a video for lane detection. The video is processed, and lane markings are detected.</li>
+                    <li><strong>/upload/Damage</strong> (POST) - Upload a video for pothole detection. The video is processed to detect potholes.</li>
+                    <li><strong>/stream/lane/uploads</strong> (GET) - Stream the lane detection video after processing.</li>
+                    <li><strong>/stream/Damage/uploads</strong> (GET) - Stream the pothole detection video after processing.</li>
+                    <li><strong>/api/upload-image</strong> (POST) - Upload an image to report damage. The image is stored with geolocation information.</li>
+                    <li><strong>/api/get-markers</strong> (GET) - Fetch a list of damage markers (geolocation data) from the database.</li>
+                </ul>
+
+                <h2>How It Works</h2>
+                <p>The app utilizes various techniques like lane detection using OpenCV and pothole detection using YOLOv8. Users can upload videos for processing, and the results are returned via video streaming. The app also allows users to upload images with their geolocation data to report damage on the road.</p>
+
+                <h2>Data Storage</h2>
+                <p>The app stores geolocation data of reported damage using a database. This data can be accessed through the <code>/api/get-markers</code> route.</p>
+
+                <h2>Technologies Used</h2>
+                <ul>
+                    <li>Flask (for backend API)</li>
+                    <li>OpenCV (for lane detection)</li>
+                    <li>YOLOv8 (for pothole detection)</li>
+                    <li>Firebase (for storing images)</li>
+                    <li>HTML/CSS/JavaScript (for frontend)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sarthi Web App. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
